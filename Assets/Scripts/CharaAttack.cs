@@ -37,7 +37,7 @@ public class CharaAttack : MonoBehaviour
         if(m_swordTrail)
             m_swordTrail.Clear(); // Pour reset le trail de l'arme, s'il y en a un
 
-        m_anim.SetTrigger("Attack");
+        m_anim.SetTrigger("Attack"); // Faire l'anim de l'attaque
         StartCoroutine(AttackCooldownCoroutine(m_attackCooldown));
 
         m_rb.AddForce(Vector2.right * m_anim.transform.localScale.x * 5, ForceMode2D.Impulse); // Fait légèrement avancer le perso dans la direction de son attaque

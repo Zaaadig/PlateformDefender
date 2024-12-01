@@ -9,7 +9,7 @@ public class Jump : MonoBehaviour
     [SerializeField, Range(1, 15), Tooltip("Hauteur de saut maximale")] private float m_maxJumpHeight = 8;
     [SerializeField, Range(0.1f, 3), Tooltip("Hauteur de saut maximale")] private float m_maxJumpDuration = 1.5f;
 
-    [SerializeField] private ParticleSystem m_spinVFX;
+    [SerializeField] private ParticleSystem m_spinVFX; // A faire
 
     private bool m_canJump = true;
     private bool m_isJumping = false;

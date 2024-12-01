@@ -13,8 +13,8 @@ public class CharaController : MonoBehaviour
 
     [Header("Visuals")]
     [SerializeField] private Animator m_anim;
-    [SerializeField] private ParticleSystem m_landVFX;
-    [SerializeField] private ParticleSystem m_deathVFX;
+    [SerializeField] private ParticleSystem m_landVFX; //A faire
+    [SerializeField] private ParticleSystem m_deathVFX; //A faire
 
     [Header("Ground Detection")]
     [SerializeField] [Tooltip("Length of the ground-checking collider")] private float m_groundLength = 0.3f;
