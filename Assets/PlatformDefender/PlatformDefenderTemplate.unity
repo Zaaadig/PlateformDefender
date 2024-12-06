@@ -6705,7 +6705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45c1906494524442acdbe023f02d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_jumpForce: 60
+  m_jumpForce: 50
   m_maxJumpHeight: 3
   m_maxJumpDuration: 0.4
   m_spinVFX: {fileID: 0}
