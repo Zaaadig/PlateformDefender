@@ -221,6 +221,7 @@ public class CharaController : MonoBehaviour
     public bool CanMove()
     {
         if (m_charaAttack.IsAttacking) return false;
+        if (!m_isAlive) return false;
 
         return m_canMove;
     }
@@ -248,9 +249,17 @@ public class CharaController : MonoBehaviour
             {
                 m_deathVFX.transform.parent = null;
                 m_deathVFX.Play();
+                StartCoroutine(C_CameraShake());
             }
-            Destroy(gameObject);
+            m_anim.gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator C_CameraShake()
+    {
+        yield return new WaitForSeconds(5f);
+        CameraShake.Instance.StartShaking(7f, Vector2.up * 2f);
+        CameraShake.Instance.FreezeTime(0.1f, 0.05f);
     }
 
     private void OnDrawGizmos()
