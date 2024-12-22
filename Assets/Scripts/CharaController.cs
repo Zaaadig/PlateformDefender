@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CharaController : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("References")]
+    [SerializeField] private GameObject m_camera;
+    [SerializeField] private GameObject m_button;
+    [SerializeField] private TriangleTrigger m_Trigger;
+    [SerializeField] private TriangleTrigger m_Trigger1;
 
+    [Header("Movement")]
     [SerializeField, Range(0, 100), Tooltip("Accélération du personnage lorsqu'on appuie sur la touche de déplacement")] private float m_acceleration = 20;
     [SerializeField, Range(1, 50), Tooltip("Vitesse de déplacement maximale")] private float m_maxMoveSpeed = 5;
     [SerializeField, Range(0, 15), Tooltip("Vitesse à laquelle le personnage s'immobilise après un déplacement")] private float m_movementDrag = 2;
@@ -257,9 +262,14 @@ public class CharaController : MonoBehaviour
 
     private IEnumerator C_CameraShake()
     {
+        m_camera.transform.parent = m_deathVFX.transform;
+        m_Trigger.gameObject.SetActive(false);
+        m_Trigger1.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
-        CameraShake.Instance.StartShaking(7f, Vector2.up * 2f);
+        CameraShake.Instance.StartShaking(10f, Vector2.up * 1.5f);
         CameraShake.Instance.FreezeTime(0.1f, 0.05f);
+        yield return new WaitForSeconds(0.5f);
+        m_button.SetActive(true);
     }
 
     private void OnDrawGizmos()
