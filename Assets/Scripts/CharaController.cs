@@ -5,8 +5,8 @@ using UnityEngine;
 public class CharaController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject m_camera;
     [SerializeField] private GameObject m_button;
+    [SerializeField] private GameObject m_buttonMenu;
     [SerializeField] private TriangleTrigger m_Trigger;
     [SerializeField] private TriangleTrigger m_Trigger1;
 
@@ -262,7 +262,6 @@ public class CharaController : MonoBehaviour
 
     private IEnumerator C_CameraShake()
     {
-        m_camera.transform.parent = m_deathVFX.transform;
         m_Trigger.gameObject.SetActive(false);
         m_Trigger1.gameObject.SetActive(false);
         yield return new WaitForSeconds(5f);
@@ -270,6 +269,7 @@ public class CharaController : MonoBehaviour
         CameraShake.Instance.FreezeTime(0.1f, 0.05f);
         yield return new WaitForSeconds(0.5f);
         m_button.SetActive(true);
+        m_buttonMenu.SetActive(true);
     }
 
     private void OnDrawGizmos()

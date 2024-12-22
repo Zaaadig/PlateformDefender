@@ -11,13 +11,10 @@ public class TriangleTrigger : MonoBehaviour
     [SerializeField] private Jump m_jump;
     [SerializeField] private SpriteRenderer m_sprite;
     [SerializeField] private GameObject m_button;
+    [SerializeField] private GameObject m_buttonMenu;
     [SerializeField] private ParticleSystem m_deathVFX;
     [SerializeField] private GameObject m_visuals;
-    [SerializeField] private GameObject m_camera;
-    [SerializeField] private ParticleSystem m_ref;
     [SerializeField] private TriangleTrigger m_triangleTrigger;
-
-    private float m_currentTimer = 0;
     void Update()
     {
         //if (!IsGameOver())
@@ -44,7 +41,6 @@ public class TriangleTrigger : MonoBehaviour
             m_sprite.enabled = false;
             m_deathVFX.Play();
             m_visuals.SetActive(false);
-            m_camera.transform.parent = m_ref.transform;
             m_triangleTrigger.enabled = false;
 
         }
@@ -63,6 +59,7 @@ public class TriangleTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(5.5f);
         m_button.SetActive(true);
+        m_buttonMenu.SetActive(true);
         yield return new WaitForSeconds(5f);
         m_deathVFX.Stop();
     }

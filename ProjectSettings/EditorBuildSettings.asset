@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PlatformDefender/PlatformDefenderTemplate.unity
     guid: 536994937141fb949a1be515dbe7261b
+  - enabled: 1
+    path: Assets/PlatformDefender/Start.unity
+    guid: 7018e49529b674442bc3143b2bfb7bc2
+  - enabled: 1
+    path: Assets/PlatformDefender/Infos.unity
+    guid: 9f2d1d9c49510d649a479d89ff0e76a4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
