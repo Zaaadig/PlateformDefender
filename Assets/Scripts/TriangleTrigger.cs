@@ -16,19 +16,18 @@ public class TriangleTrigger : MonoBehaviour
     [SerializeField] private GameObject m_camera;
     [SerializeField] private ParticleSystem m_ref;
     [SerializeField] private TriangleTrigger m_triangleTrigger;
-    [SerializeField] private TextMeshProUGUI m_timerText;
 
     private float m_currentTimer = 0;
     void Update()
     {
-        if (!IsGameOver())
-        {
-            m_currentTimer += Time.deltaTime;
-            float minutes = Mathf.FloorToInt(m_currentTimer / 60);
-            float seconds = Mathf.FloorToInt(m_currentTimer % 60);
+        //if (!IsGameOver())
+        //{
+        //    m_currentTimer += Time.deltaTime;
+        //    float minutes = Mathf.FloorToInt(m_currentTimer / 60);
+        //    float seconds = Mathf.FloorToInt(m_currentTimer % 60);
 
-            m_timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
+        //    m_timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        //}
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +35,7 @@ public class TriangleTrigger : MonoBehaviour
         if (collision.CompareTag("Lava"))
         {
             StartCoroutine(C_Delay());
-            StartCoroutine(C_CameraShake());
+            //StartCoroutine(C_CameraShake());
             m_rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             m_rb.gravityScale = 10f;
             m_charaController.enabled = false;
@@ -51,12 +50,12 @@ public class TriangleTrigger : MonoBehaviour
         }
     }
 
-    public bool IsGameOver()
-    {
-        if (!m_charaController) return true;
-        if (!m_charaController.IsAlive) return true;
-        return false;
-    }
+    //public bool IsGameOver()
+    //{
+    //    if (!m_charaController) return true;
+    //    if (!m_charaController.IsAlive) return true;
+    //    return false;
+    //}
 
 
 
@@ -67,14 +66,14 @@ public class TriangleTrigger : MonoBehaviour
         yield return new WaitForSeconds(5f);
         m_deathVFX.Stop();
     }
-    private IEnumerator C_CameraShake()
-    {
-        m_camera.transform.parent = m_deathVFX.transform;
-        yield return new WaitForSeconds(5f);
-        CameraShake.Instance.StartShaking(1f, Vector2.up * 1.5f);
-        CameraShake.Instance.FreezeTime(0.1f, 0.05f);
-        yield return new WaitForSeconds(0.5f);
-        Destroy(m_deathVFX);
-        Destroy(m_rb);
-    }
+    //private IEnumerator C_CameraShake()
+    //{
+    //    m_camera.transform.parent = m_deathVFX.transform;
+    //    yield return new WaitForSeconds(5f);
+    //    CameraShake.Instance.StartShaking(1f, Vector2.up * 1.5f);
+    //    CameraShake.Instance.FreezeTime(0.1f, 0.05f);
+    //    yield return new WaitForSeconds(0.5f);
+    //    Destroy(m_deathVFX);
+    //    Destroy(m_rb);
+    //}
 }

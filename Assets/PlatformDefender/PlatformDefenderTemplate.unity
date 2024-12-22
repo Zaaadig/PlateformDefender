@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 174816502}
   - component: {fileID: 174816501}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: Trigger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,6 +475,7 @@ MonoBehaviour:
   m_visuals: {fileID: 2077354423}
   m_camera: {fileID: 335453766}
   m_ref: {fileID: 1067774935}
+  m_triangleTrigger: {fileID: 793578805}
 --- !u!61 &174816502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1735,6 +1736,7 @@ MonoBehaviour:
   m_visuals: {fileID: 2077354423}
   m_camera: {fileID: 335453766}
   m_ref: {fileID: 1067774935}
+  m_triangleTrigger: {fileID: 174816501}
 --- !u!1 &897417034
 GameObject:
   m_ObjectHideFlags: 0
@@ -27832,6 +27834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 335453766}
   m_button: {fileID: 1877683870}
+  m_Trigger: {fileID: 793578805}
+  m_Trigger1: {fileID: 174816501}
   m_acceleration: 50
   m_maxMoveSpeed: 20
   m_movementDrag: 15
